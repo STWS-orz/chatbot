@@ -40,7 +40,7 @@ npm run dev    --- 其他命令查看scrpit内容
 ```shell
 # 安装依赖
 yarn install
-# 安装适配器
+# dev预览
 npm run dev  --- 测试环境预览 其他命令查看scrpit内容
 ```
 
