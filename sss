@@ -1,0 +1,189 @@
+'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+}
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor);
+  }
+}
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  Object.defineProperty(Constructor, "prototype", {
+    writable: false
+  });
+  return Constructor;
+}
+function _defineProperty(obj, key, value) {
+  key = _toPropertyKey(key);
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+  return obj;
+}
+function _toPrimitive(input, hint) {
+  if (typeof input !== "object" || input === null) return input;
+  var prim = input[Symbol.toPrimitive];
+  if (prim !== undefined) {
+    var res = prim.call(input, hint || "default");
+    if (typeof res !== "object") return res;
+    throw new TypeError("@@toPrimitive must return a primitive value.");
+  }
+  return (hint === "string" ? String : Number)(input);
+}
+function _toPropertyKey(arg) {
+  var key = _toPrimitive(arg, "string");
+  return typeof key === "symbol" ? key : String(key);
+}
+
+/*
+ * Description: 自定义时间
+ * File Created:  20st June 2023 19:34:12 pm
+ * Author: shiqin
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+// type Empty = (...args: any[]) => void;
+
+/**
+ * 事件列表
+ * @private
+ * @interface EventList
+ */
+
+/**
+ * 自定义事件
+ *
+ * @export
+ * @class EventEmitter
+ */
+var EventEmitter = /*#__PURE__*/function () {
+  function EventEmitter() {
+    _classCallCheck(this, EventEmitter);
+    /**
+     * 事件列表
+     *
+     * @private
+     * @type {EventList}
+     * @memberof EventEmitter
+     */
+    _defineProperty(this, "events", {});
+  }
+  _createClass(EventEmitter, [{
+    key: "on",
+    value:
+    /**
+     * 绑定自定义事件
+     *
+     * @param {string} event 事件类型
+     * @param {EventHandler} handler 执行函数
+     * @return {EventEmitter}  {EventEmitter}
+     * @memberof EventEmitter
+     * @example
+     * // 单个事件
+     * this.on('myEvent', (event) => {
+     *  console.log(event)
+     * })
+     * // 多个事件
+     * this.on('myEvent, otherEvent', (event) =>{
+     *  console.log(event)
+     * })
+     */
+    function on(events, handler) {
+      var _this = this;
+      this.each(events, function (event) {
+        if (Object.prototype.hasOwnProperty.call(_this.events, event)) {
+          _this.events[event].push(handler);
+        } else {
+          _this.events[event] = [handler];
+        }
+      });
+    }
+
+    /**
+     * 触发自定义事件
+     *
+     * @param {string} event 事件类型
+     * @param {...any[]} args 参数
+     * @return {EventEmitter}  {EventEmitter}
+     * @memberof EventEmitter
+     * @example
+     * this.emit('myEvent', '传递的参数')
+     */
+  }, {
+    key: "emit",
+    value: function emit(events) {
+      var _this2 = this;
+      for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+        args[_key - 1] = arguments[_key];
+      }
+      this.each(events, function (event) {
+        if (Object.prototype.hasOwnProperty.call(_this2.events, event)) {
+          _this2.events[event].forEach(function (handler) {
+            handler.apply(void 0, args);
+          });
+        }
+      });
+    }
+
+    /**
+     * 解绑事件函数
+     *
+     * @param {string} event 事件类型
+     * @param {EventHandler} handler 执行函数
+     * @return {EventEmitter}  {EventEmitter}
+     * @memberof EventEmitter
+     * @example
+     * const handler = () => {}
+     * this.on('myEvent', handler)
+     * this.off('myEvent', handler)
+     */
+  }, {
+    key: "off",
+    value: function off(events, handler) {
+      var _this3 = this;
+      this.each(events, function (event) {
+        if (Object.prototype.hasOwnProperty.call(_this3.events, event)) {
+          _this3.events[event] = _this3.events[event].filter(function (item) {
+            return handler !== item;
+          });
+        }
+      });
+    }
+    /**
+     * 支持多个事件绑定
+     *
+     * @private
+     * @param {string} events
+     * @param {callbackFuncion} handler
+     * @memberof EventEmitter
+     */
+  }, {
+    key: "each",
+    value: function each(events, handler) {
+      events.split(',').forEach(function (event) {
+        handler(event.trim());
+      });
+    }
+  }]);
+  return EventEmitter;
+}();
+
+exports.EventEmitter = EventEmitter;
+//# sourceMappingURL=sss.map

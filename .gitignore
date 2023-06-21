@@ -1,0 +1,8 @@
+.DS_Store
+node_modules
+.idea
+.history
+package-lock.json
+./example/demo1/dist
+./example/demo1/node_modules
+./example/demo1/.vscode

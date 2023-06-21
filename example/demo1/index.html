@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <title>Roboot ChatRoom</title>
+    <script>
+       (function (win, doc) {
+        if (!win.addEventListener) return;
+        var html = document.documentElement;
+        function setFont() {
+            var html = document.documentElement;
+            var designWidth = 2560;
+            var minWidth = 1366;
+            var docWidth = html.clientWidth < minWidth ? minWidth : html.clientWidth;
+            html.style.fontSize = (docWidth / designWidth) * 100 + 'px';
+        }
+        setFont();
+        setTimeout(function () {
+            setFont();
+        }, 300);
+        doc.addEventListener('DOMContentLoaded', setFont, false);
+        win.addEventListener('resize', setFont, false);
+        win.addEventListener('load', setFont, false);
+      })(window, document);
+
+    // LazySizes
+    window.lazySizesConfig = window.lazySizesConfig || {};
+    window.lazySizesConfig.init = false;
+   
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+    <script src="./dist/index.umd.js"></script>
+  </body>
+</html>
