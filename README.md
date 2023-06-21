@@ -36,6 +36,6 @@
 
 ###### 页面效果
 > M页面效果
-![Image text](https://github.com/STWS-orz/Roboot/blob/main/example/demo1/public/e-effect.png)
+![Image text](https://github.com/STWS-orz/chatbot/blob/main/example/demo1/public/e-effect.png)
 > PC页面效果
-![Image text](https://github.com/STWS-orz/Roboot/blob/main/example/demo1/public/pc-effect.png)
+![Image text](https://github.com/STWS-orz/chatbot/blob/main/example/demo1/public/pc-effect.png)
