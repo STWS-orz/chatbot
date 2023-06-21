@@ -46,6 +46,6 @@ npm run dev  --- 测试环境预览 其他命令查看scrpit内容
 
 ###### 页面效果
 - M页面效果
-![Image text](https://github.com/STWS-orz/chatbot/blob/main/example/demo1/public/e-effect.png)
+![Image text](https://github.com/STWS-orz/chatbot/blob/main/example/demo1/public/m-effect.png)
 - PC页面效果
 ![Image text](https://github.com/STWS-orz/chatbot/blob/main/example/demo1/public/pc-effect.png)
